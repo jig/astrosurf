@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>astrojig</title>
+	<!-- Using library and sample code from "Code Computerlove - http://www.codecomputerlove.com/" -->
+	<meta name="author" content="Jordi Íñigo Griera - http://astrosurf.com/jig" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" rel="stylesheet" />
+	<link href="css/jquery-mobile.css" type="text/css" rel="stylesheet" />
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="lib/klass.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="lib/code.photoswipe.jquery-3.0.5.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		/*
+		 * IMPORTANT!!!
+		 * REMEMBER TO ADD  rel="external"  to your anchor tags. 
+		 * If you don't this will mess with how jQuery Mobile works
+		 */
+		
+		(function(window, $, PhotoSwipe){
+			
+			$(document).ready(function(){
+				
+				$('div.gallery-page')
+					.live('pageshow', function(e){
+						
+						var 
+							currentPage = $(e.target),
+							options = {},
+							photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
+							
+						return true;
+						
+					})
+					
+					.live('pagehide', function(e){
+						
+						var 
+							currentPage = $(e.target),
+							photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+
+						if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+							PhotoSwipe.detatch(photoSwipeInstance);
+						}
+						
+						return true;
+						
+					});
+				
+			});
+		
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+		
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			<h1>astrojig</h1>
+		</div>
+		
+		<div data-role="content" >	
+			<p>A bunch of astronomical pictures with an 8 inches Schmidt-Cassegrain and some other stuff</p>		
+			
+			<ul data-role="listview" data-inset="true">
+				<li><a href="photoAstro.html" rel="external">Astrophotos</a></li> 
+				<li><a href="photoPlane.html" rel="external">Plane Eclipse</a></li> 
+				<li><a href="#equipment">Equipment</a></li> 
+				<li><a href="#experiments">Experiments</a></li> 
+				<li><a href="../desktop" rel="external">Desktop Version</a></li> 
+			</ul> 
+		</div>
+
+		<div data-role="content" >	
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#about">About</a></li> 
+			</ul> 
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; 2012 Jordi Íñigo Griera</h4>
+		</div>
+	</div>
+
+	
+	
+	<div data-role="page" data-add-back-btn="true" id="about">
+		<div data-role="header">
+			<h1>About</h1>
+		</div>
+
+		<div data-role="content">	
+			<p>Site developed with 
+			HTML5, CSS3, 
+			, 
+			<a href="http://http://jquery.com">jQuery</a>
+			, 
+			<a href="http://http://jquerymobile.com">jQuery Mobile</a>
+			, 
+			and 
+			<a href="http://http://www.photoswipe.com">PhotoSwipe</a>
+			.</p>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; 2012 Jordi Íñigo Griera</h4>
+		</div>
+	</div>
+
+	
+	
+	<div data-role="page" data-add-back-btn="true" id="equipment">
+		<div data-role="header">
+			<h1>Equipment</h1>
+		</div>
+
+		<div data-role="content">	
+			<ul data-role="listview" data-inset="true">
+				<!-- <li><a href="images/full/010.jpg" rel="external"><img src="images/thumb/010.jpg" alt="Image 010" /></a></li> -->
+				<li><a href="#optics" rel="external">Optical path</a></li>
+				<li><a href="#sensors" rel="external">Sensor Devices</a></li>
+				<li><a href="#tracking" rel="external">Tracking</a></li>
+				<li><a href="#sky" rel="external">Sky</a></li>
+			</ul>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; 2012 Jordi Íñigo Griera</h4>
+		</div>
+	</div>
+
+	<div data-role="page" data-add-back-btn="true" id="experiments">
+		<div data-role="header">
+			<h1>Experiments</h1>
+		</div>
+
+		<div data-role="content">	
+			<ul data-role="listview" data-inset="true">
+				<!-- <li><a href="images/full/010.jpg" rel="external"><img src="images/thumb/010.jpg" alt="Image 010" /></a></li> -->
+				<li><a href="ddtmotor" rel="external">Direct Drive Torque Motor</a></li>
+				<li><a href="park" rel="external">Park by angle</a></li>
+				<li><a href="gps" rel="external">GPS nail</a></li>
+				<li><a href="#cromatopic">Cromatopic Lantern</a></li>
+				<li><a href="#scotopic">Scotopic Lantern</a></li>
+			</ul>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; 2012 Jordi Íñigo Griera</h4>
+		</div>
+	</div>
+	
+	<div data-role="page" data-add-back-btn="true" id="scotopic">
+		<div data-role="header">
+			<h1> </h1>
+		</div>
+
+	</div>
+</body>
+</html>

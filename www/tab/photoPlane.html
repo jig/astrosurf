@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoSwipe</title>
+	<meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="lib/klass.min.js"></script>
+	<script type="text/javascript" src="lib/code.photoswipe-3.0.5.min.js"></script>
+	
+	
+	<script type="text/javascript">
+		(function(window, PhotoSwipe){
+			document.addEventListener( 'DOMContentLoaded', function() {
+				var	options = {
+						preventHide: true,
+						getImageSource: function(obj){
+							return obj.url;
+						},
+						getImageCaption: function(obj){
+							return obj.caption;
+						}
+					};
+				var instance = PhotoSwipe.attach([
+							{ url: 'images/2012/20120406 Lluna i avio/avio1.jpg', caption: 'Plane & moon 1/6'},
+							{ url: 'images/2012/20120406 Lluna i avio/avio2.jpg', caption: 'Plane & moon 2/6'},
+							{ url: 'images/2012/20120406 Lluna i avio/avio3.jpg', caption: 'Plane & moon 3/6'},
+							{ url: 'images/2012/20120406 Lluna i avio/avio4.jpg', caption: 'Plane & moon 4/6'},
+							{ url: 'images/2012/20120406 Lluna i avio/avio5.jpg', caption: 'Plane & moon 5/6'},
+							{ url: 'images/2012/20120406 Lluna i avio/avio6.jpg', caption: 'Plane & moon 6/6'},
+						], 
+						options 
+					);
+					instance.show(0);
+			}, false);
+		}(window, window.Code.PhotoSwipe));
+	</script>
+	
+</head>
+<body />
+</html>

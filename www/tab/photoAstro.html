@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoSwipe</title>
+	<meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="lib/klass.min.js"></script>
+	<script type="text/javascript" src="lib/code.photoswipe-3.0.5.min.js"></script>
+	
+	
+	<script type="text/javascript">
+		(function(window, PhotoSwipe){
+			document.addEventListener( 'DOMContentLoaded', function() {
+				var	options = {
+						preventHide: true,
+						getImageSource: function (obj) {
+							return obj.url;
+						},
+						getImageCaption: function (obj) {
+							return obj.caption;
+						}						
+					};
+				var instance = PhotoSwipe.attach([
+							{ 
+								url: 'images/2012/20120210 M42/m42e (1024).jpg', 
+								caption: 'M42 | Orion Great Nebula',
+								'data-related-url': 'images/2012/20120706 M27/M27web.jpg'
+							},
+							{ url: 'images/2012/20120211 433 Eros/433 Eros 20120211a (1024).jpg', caption: ''},
+							{ url: 'images/2012/20120331 M51/M51 1024.jpg', caption: 'M51 | Whirpool Nebula'},
+							{ url: 'images/2012/20120408 Mart/mart16b i 17.png', caption: 'Mars'},
+							{ url: 'images/2012/20120408 Saturn/saturn4 i 5 i 7.png', caption: 'Saturn'},
+							{ url: 'images/2012/20120601 M13/M13 20x30s (desaturada).jpg', caption: 'M13 | Hercules Globular Cluster'},
+							{ url: 'images/2012/20120623 M27/M27 super de dia.jpg', caption: 'M27 | Dumbell Nebula'},
+							{ url: 'images/2012/20120706 M27/M27web.jpg', caption: 'M27 | Dumbell Nebula'},
+						], 
+						options 
+					);
+					instance.show(0);
+			}, false);
+		}(window, window.Code.PhotoSwipe));
+	</script>
+	
+</head>
+<body>
+	<div data-role="page" id="Home">
+		<div data-role="header">
+			<h1>astrojig</h1>
+		</div>
+		
+		<div data-role="content" >	
+			<p>This is where I publish my astro images</p>		
+			
+			<ul data-role="listview" data-inset="true">
+				<li><a href="photoAstro.html" rel="external">Astrophotos</a></li> 
+				<li><a href="photoPlane.html" rel="external">Plane Eclipse</a></li> 
+				<li><a href="#equipment">Equipment</a></li> 
+				<li><a href="#experiments">Experiments</a></li> 
+				<li><a href="../desktop" rel="external">Desktop Version</a></li> 
+			</ul> 
+		</div>
+
+		<div data-role="content" >	
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#about">About</a></li> 
+			</ul> 
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; 2012 Jordi Íñigo Griera</h4>
+		</div>
+	</div>
+</body>
+</html>
